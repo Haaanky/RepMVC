@@ -1,0 +1,19 @@
+@model RepQuiz.Models.Band[]
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>Index of page</h1>
+    <h2>The best bands are...</h2>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.BandName</li>
+        }
+    </ul>
+</body>
+</html>
