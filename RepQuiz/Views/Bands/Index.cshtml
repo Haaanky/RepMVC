@@ -1,3 +1,5 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @model RepQuiz.Models.Band[]
 <html>
 <head>
@@ -12,8 +14,15 @@
     <ul>
         @foreach (var item in Model)
         {
-            <li>@item.BandName</li>
+        <li>
+            <a asp-controller="bands" asp-action="details" asp-route-id="@item.ID">@item.BandName</a>
+            <a asp-controller="bands" asp-action="edit" asp-route-id="@item.ID">Edit Band Details </a>
+            <a asp-controller="bands" asp-action="delete" asp-route-id="@item.ID">Delete Band </a>
+        </li>
         }
     </ul>
+
+    @*<a href="~/Bands/Create">Add a new Band</a>*@
+    <a asp-controller="bands" asp-action="Create">Add a new Band</a>
 </body>
 </html>

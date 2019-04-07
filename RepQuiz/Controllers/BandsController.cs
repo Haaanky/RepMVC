@@ -29,23 +29,53 @@ namespace RepQuiz.Controllers
         [Route("bands/details/{id}")]
         public IActionResult Details(int id)
         {
-            if (id <= bandsService.GetAllBands().Length)
+            //if (id <= bandsService.GetAllBands().Length)
                 return View(bandsService.GetBandById(id));
-            else
-                return RedirectToAction(nameof(Index));
+            //else
+                //return RedirectToAction(nameof(Index));
+        }
+        // Uppgift 2 nedan
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
         }
 
-        [HttpGet]
-        public IActionResult Create()
+        [HttpPost]
+        public IActionResult Create(Band band)
         {
-            bandsService.AddBand();
-            return View();
+            bandsService.AddBand(band);
+            return RedirectToAction(nameof(Index));
         }
+
+        [Route("bands/edit/{id}")]
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Edit(int id)
         {
-            bandsService.AddBand();
-            return View();
+            return View(bandsService.GetBandById(id));
+        }
+
+        [Route("bands/edit/{id}")]
+        [HttpPost]
+        public IActionResult Edit(Band band)
+        {
+            bandsService.EditBand(band);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Route("bands/delete/{id}")]
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            return View(bandsService.GetBandById(id));
+        }
+
+        [Route("bands/delete/{id}")]
+        [HttpPost]
+        public IActionResult Delete(Band band)
+        {
+            bandsService.DeleteBand(band);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

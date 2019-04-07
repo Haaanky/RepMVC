@@ -1,0 +1,11 @@
+@model RepQuiz.Models.Band
+
+<!DOCTYPE html>
+<h2>Delete Band:</h2>
+<form asp-action="delete" method="post">
+    <p>Name: @Model.BandName</p>
+    <p>Email: @Model.Description</p>
+    <img src="@Model.ImagePath" alt="Picture of @Model.BandName" />
+    <br />
+    <input type="submit" value="Delete" />
+</form>
