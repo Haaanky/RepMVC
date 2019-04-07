@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<header style="background-color: lightgrey">
+    <h1>Good Bands Webpage</h1>
+    <a href="~/">Main</a>
+    <a asp-controller="bands" asp-action="Create">Add a new Band</a>
+</header>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <footer style="background-color: lightgray">&copy; HH-productions 2019</footer>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

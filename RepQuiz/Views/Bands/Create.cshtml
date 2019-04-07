@@ -1,30 +1,33 @@
 ﻿@*Uppgift 2 nedan*@
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model RepQuiz.Models.Band
+@model Band
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>index</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+@{
+    ViewBag.Title = "Create band";
+}
+<div>
     <h1>Create</h1>
     <form asp-controller="bands" asp-action="create">
         <label asp-for="BandName"></label>
         <input asp-for="BandName" />
+        <span asp-validation-for="BandName"></span>
         <br />
         <label asp-for="Description"></label>
         <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
         <br />
         <label asp-for="ImagePath"></label>
         <input asp-for="ImagePath" />
+        <span asp-validation-for="ImagePath"></span>
         <br />
         <label asp-for="YouTubeLink"></label>
         <input asp-for="YouTubeLink" />
+        <span asp-validation-for="YouTubeLink"></span>
         <br />
         <input type="submit" name="btnSubmit" value="Submit Band" />
     </form>
-</body>
-</html>
+</div>
+@section scripts  {
+    @*<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>*@
+    <partial name="_ValidationScripts" />
+}

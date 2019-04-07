@@ -1,28 +1,21 @@
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-@model RepQuiz.Models.Band[]
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>index</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+@model Band[]
+@{
+    ViewBag.Title = "Index page";
+}
+<div>
     <h1>Index of page</h1>
     <h2>The best bands are...</h2>
     <ul>
         @foreach (var item in Model)
         {
-        <li>
-            <a asp-controller="bands" asp-action="details" asp-route-id="@item.ID">@item.BandName</a>
-            <a asp-controller="bands" asp-action="edit" asp-route-id="@item.ID">Edit Band Details </a>
-            <a asp-controller="bands" asp-action="delete" asp-route-id="@item.ID">Delete Band </a>
-        </li>
+            <li>
+                <a asp-controller="bands" asp-action="details" asp-route-id="@item.ID">@item.BandName</a>
+                <a asp-controller="bands" asp-action="edit" asp-route-id="@item.ID">Edit Band Details </a>
+                <a asp-controller="bands" asp-action="delete" asp-route-id="@item.ID">Delete Band </a>
+            </li>
         }
     </ul>
 
     @*<a href="~/Bands/Create">Add a new Band</a>*@
     <a asp-controller="bands" asp-action="Create">Add a new Band</a>
-</body>
-</html>
+</div>

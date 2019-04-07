@@ -44,6 +44,10 @@ namespace RepQuiz.Controllers
         [HttpPost]
         public IActionResult Create(Band band)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(band);
+            }
             bandsService.AddBand(band);
             return RedirectToAction(nameof(Index));
         }
@@ -59,6 +63,9 @@ namespace RepQuiz.Controllers
         [HttpPost]
         public IActionResult Edit(Band band)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             bandsService.EditBand(band);
             return RedirectToAction(nameof(Index));
         }
